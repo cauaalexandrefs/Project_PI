@@ -4,6 +4,25 @@
 {% block header %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
+{% block search %}
+  <form action="/" method="get">
+    <input 
+    type="search" 
+    name="q"
+    placeholder="  Pesquise algum filme ou série..."
+    style="border: none; border-radius: 10px; width: 70%; height: 35px" />
+    <button
+      type="submit"
+      href="/"
+      id="buttonGo"
+      class="btn btn-secondary"
+    >
+      <span>Ir</span>
+    </button>
+
+  </form>
+
+{% endblock %}
 {% block content%}
 <br />
 <div
@@ -23,5 +42,15 @@
         </div>
       </div>
       <br />
+      {% if query %}
+        <h3>Resultados para "{{query}}"</h3>
+        {% for obra in obras %}
+          <p>{{obra.nome}}</p>
+        {% endfor %}
+      {% endif %}
+      
+      {% for filme in filmes %}
+        <p>{{filme.nome}}</p>
+      {% endfor %}
       
 {% endblock %}

@@ -26,15 +26,8 @@
     <header>
         <h1><a href="home.html">Cine Star</a></h1>
         <div id="search-input" class="form-group">
-          <input type="search" placeholder="  Pesquise algum filme ou série..." />
-          <button
-            type="button"
-            id="buttonGo"
-            class="btn btn-secondary"
-            image="stat"
-          >
-            <span>Ir</span>
-          </button>
+          {% block search %} {% endblock %}
+       
         </div>
   
         <nav class="navbar navbar-expand-lg">

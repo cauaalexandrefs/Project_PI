@@ -115,14 +115,14 @@ header > nav {
   margin-right: 2%;
 }
 
-#search-input > input {
+#search-input > form > input {
   border: none;
   border-radius: 10px;
   width: 70%;
   height: 35px;
 }
 
-#search-input > button > span {
+#search-input > form > button > span {
   align-self: center;
 }
 
