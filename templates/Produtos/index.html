@@ -25,16 +25,23 @@
 {% endblock %}
 {% block content%}
 <br />
-<div
+      {% if query %}
+        <h3>Resultados para "{{query}}"</h3>
+        {% for obra in obras %}
+          <p>{{obra.nome}}</p>
+        {% endfor %}
+
+      {% else %}      
+      <div
         class="container-lg"
         id="main-post"
-        style="background-image: url('{% static 'images/black_panther_main_post.png' %}')"
+        style="background-image: url({{filmes.0.imagem.url}})"
       >
         <div class="text-post">
           <h1 style="font-weight: bolder; letter-spacing: 5px">
-            bLACK PANTHER
+            {{filmes.0.nome}}
           </h1>
-          <h3>ESTREIA DIA 10.11</h3>
+          <h3>Por apenas {{filmes.0.preco}}</h3>
           <br />
           <a href="#black-panther-modal"
             ><span>Clique para mais detalhes</span></a
@@ -42,15 +49,46 @@
         </div>
       </div>
       <br />
-      {% if query %}
-        <h3>Resultados para "{{query}}"</h3>
-        {% for obra in obras %}
-          <p>{{obra.nome}}</p>
-        {% endfor %}
+      <div class="container-xlg" id="trending">
+        <div class="trending-text">
+          <h2><a href="./filmes.html">Filmes</a></h2>
+        </div>
+        <br />
+        <div class="trending-carrousel">
+          {% for filme in filmes %}
+          <div class="card" id="card-carrousel-item">
+            <img
+              class="card-img-top"
+              src="{{filme.imagem.url}}"
+              alt="BLACK PANTHER"
+            />
+            <div class="card-body">
+              <h6 class="card-title">{{filme.nome}}</h6>
+              <p class="card-text">COMPRE POR {{filme.preco}}</p>
+              <hr />
+              <a
+                href="#black-panther-modal"
+                class="btn btn-primary"
+                id="btn-card-footer"
+                >Saiba mais</a
+              >
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="container-xlg" id="trending">
+        <div class="trending-text" id="trending-series">
+          <h2><a href="./series.html">Séries</a></h2>
+        </div>
+        <br />
+        <div class="trending-carrousel">
+          {{filmes.0.}}
+          {% for serie in series %}
+          {% endfor %}
+        </div>
+      </div>
       {% endif %}
-      
-      {% for filme in filmes %}
-        <p>{{filme.nome}}</p>
-      {% endfor %}
+
       
 {% endblock %}

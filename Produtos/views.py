@@ -19,7 +19,7 @@ def index(request):
     if request.GET.get("q"):
         query = request.GET.get("q")
         obras = Obra.objects.filter(
-            Q(nome__icontains=query) | Q(tipo__icontains=query) 
+            Q(nome__icontains=query)
         )
         print(obras)
 
@@ -29,6 +29,54 @@ def index(request):
         }
 
     return render(request, "Produtos/index.html", context)
+
+
+def list_films(request):
+    '''View function for films page. Returns all movies.'''
+
+    filmes = Obra.objects.filter(tipo="F")
+
+    context = {
+        "filmes": filmes,
+    }
+
+    if request.GET.get("q"):
+        query = request.GET.get("q")
+        obras = Obra.objects.filter(
+            Q(nome__icontains=query)
+        )
+        print(obras)
+
+        context = {
+            "query": query,
+            "obras": obras
+        }
+
+    return render(request, "Produtos/list_films.html", context)
+
+
+def list_series(request):
+    '''View function for series page. Returns all series.'''
+
+    series = Obra.objects.filter(tipo="S")
+
+    context = {
+        "series": series,
+    }
+
+    if request.GET.get("q"):
+        query = request.GET.get("q")
+        obras = Obra.objects.filter(
+            Q(nome__icontains=query)
+        )
+        print(obras)
+
+        context = {
+            "query": query,
+            "obras": obras
+        }
+
+    return render(request, "Produtos/list_series.html", context)
 
 
 def detail(request, id):
