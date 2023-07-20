@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Star - {% block title %} {% endblock %}</title>
+    <link rel="icon" href="{% static 'images/icon_RT.png' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    {% block header %}{% endblock %}
+</head>
+
+<body>
+    <header>
+        <h1><a href="home.html">Cine Star</a></h1>
+        <div id="search-input" class="form-group">
+          <input type="search" placeholder="  Pesquise algum filme ou série..." />
+          <button
+            type="button"
+            id="buttonGo"
+            class="btn btn-secondary"
+            image="stat"
+          >
+            <span>Ir</span>
+          </button>
+        </div>
+  
+        <nav class="navbar navbar-expand-lg">
+          <button
+            class="navbar-toggler"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="filmes.html" style="color: #ffff"
+                  >Filmes</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="series.html" style="color: #ffff"
+                  >Séries</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cadastro.html" style="color: #ffff"
+                  >Entrar</a
+                >
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" id="form-nav-toggle">
+              <input
+                id="search-input2"
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder=" Pesquise algum filme ou série..."
+                aria-label="Search"
+              />
+              <button id="buttonGo" class="btn btn-secondary" type="submit">
+                <span>Ir</span>
+              </button>
+            </form>
+          </div>
+        </nav>
+      </header>
+      <main>
+        {% block content %}
+        {% endblock %}
+      </main>
+      <footer class="text-center text-lg-start text-white">
+        <div class="container-flex-footer">
+          <div class="main-content-footer">
+            <h1>Cine Star</h1>
+            <p class="lead">O mundo do cinema ao seu alcance</p>
+          </div>
+          <div class="contact-list-footer">
+            <h5>Contatos:</h5>
+            <ul class="list-unstyled mb-0">
+              <li>fontes.manoel@escolar.ifrn.edu.br</li>
+              <li>caua.alexandre@escolar.ifrn.edu.br</li>
+            </ul>
+          </div>
+          <div class="media-list-footer">
+            <h5>Redes sociais:</h5>
+            <ul class="list-unstyled mb-0" style="font-family: sans serif">
+              <li>Instagram: @cinestar</li>
+              <li>Twitter: @cinestarofc</li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

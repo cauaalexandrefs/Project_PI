@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+
+#main-post {
+  background-size: cover;
+  border-radius: 20px;
+  transition: 500ms linear;
+}
+
+#main-post:hover {
+  box-shadow: 10px 10px 9px rgba(0, 0, 0, 0.829);
+  transition: 500ms linear;
+}
+
+.text-post {
+  color: #ffffff;
+  text-align: start;
+  padding: 5%;
+}
+
+.text-post > h1 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.text-post > a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Nunito", cursive;
+}
+
+.text-post > a :hover {
+  color: #929292;
+}
+
+@media (max-width: 1000px) {
+  #main-post {
+    width: 650px;
+  }
+}
+@media (max-width: 650px) {
+  #main-post {
+  
+    width: 350px;
+  }
+}

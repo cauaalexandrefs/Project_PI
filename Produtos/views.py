@@ -1,11 +1,16 @@
 from django.shortcuts import render
-from .models import Produto
+from .models import Obra
 
 # Create your views here.
 
-def produto_listar(request):
-    produtos = Produto.objects.all()
+
+def index(request):
+    filmes = Obra.objects.filter(tipo="F")
+    series = Obra.objects.filter(tipo="S")
+
     context = {
-        'produtos':produtos
+        "filmes": filmes,
+        "series": series,
     }
+
     return render(request, "Produtos/index.html", context)

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block content%}
+<br />
+<div
+        class="container-lg"
+        id="main-post"
+        style="background-image: url('{% static 'images/black_panther_main_post.png' %}')"
+      >
+        <div class="text-post">
+          <h1 style="font-weight: bolder; letter-spacing: 5px">
+            bLACK PANTHER
+          </h1>
+          <h3>ESTREIA DIA 10.11</h3>
+          <br />
+          <a href="#black-panther-modal"
+            ><span>Clique para mais detalhes</span></a
+          >
+        </div>
+      </div>
+      <br />
+      
+{% endblock %}

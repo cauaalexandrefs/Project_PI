@@ -1,0 +1,279 @@
+/* imports */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+body {
+  display: grid;
+  grid-template-rows: auto 100% auto;
+}
+
+main {
+  background-color: #f5eddc;
+}
+
+header,
+footer {
+  background-color: #eb1d36;
+}
+
+/* Header */
+header {
+  font-family: "Bebas Neue", sans-serif;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a:hover {
+  opacity: 90%;
+}
+
+header h1 {
+  margin-top: 1%;
+  padding: 1%;
+  font-size: 50px;
+}
+
+header h1 a {
+  transition: 500ms linear;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+header h1 a:hover {
+  letter-spacing: 2px;
+  opacity: 90%;
+  color: #ffffff;
+  transition: 500ms linear;
+}
+
+header > nav {
+  margin-right: 3%;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+/* Footer */
+footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.main-content-footer,
+footer > div > div h5 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+footer > div > div > ul > li {
+  font-family: "Nunito", cursive;
+}
+
+.container-flex-footer {
+  padding: 2%;
+}
+
+.container-flex-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 500ms linear;
+}
+
+header {
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+header > h1 {
+  margin-top: 1%;
+  padding: 1%;
+  font-size: 50px;
+}
+
+header > nav {
+  margin-right: 3%;
+  font-size: 30px;
+  color: #ffffff;
+}
+
+#form-nav-toggle {
+  display: none;
+}
+
+#search-input {
+  font-family: "Nunito", cursive;
+  align-self: center;
+  width: 40%;
+}
+
+#search-input2 {
+  font-family: "Nunito", cursive;
+  align-self: center;
+  width: 60%;
+  margin-right: 2%;
+}
+
+#search-input > input {
+  border: none;
+  border-radius: 10px;
+  width: 70%;
+  height: 35px;
+}
+
+#search-input > button > span {
+  align-self: center;
+}
+
+#buttonGo {
+  width: 10%;
+}
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 77, 77, 0.7);
+  transition: all 0.4s;
+}
+
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.content {
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 90%;
+  background: #fff;
+  padding: 1em 2em;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #585858;
+  text-decoration: none;
+}
+
+#modal-main-container {
+  background-image: linear-gradient(#222121, #2f2e41);
+  border-radius: 10px;
+  color: #ffff;
+  padding: 3%;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 500ms linear;
+}
+
+.modal_content > p > a {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.trending-text {
+  color: #ffffff;
+  font-family: "Bebas Neue", sans-serif;
+  background-color: #eb1d36;
+  width: 10%;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.582);
+}
+
+.trending-text > h2 > a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.trending-carrousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#card-carrousel-item {
+  width: 10rem;
+  margin-bottom: 5%;
+}
+
+.card-body {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-image: linear-gradient(rgb(85, 97, 102), rgb(56, 54, 54));
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.582);
+}
+.card-title {
+  color: #ffff;
+}
+
+.card-text {
+  font-family: "Nunito", cursive;
+  font-size: small;
+  color: #ffff;
+}
+
+#btn-card-footer {
+  background-color: #eb1d36;
+  border: none;
+  font-size: small;
+  width: 100%;
+}
+
+#trending {
+  padding: 2%;
+}
+
+@media (max-width: 1100px) {
+  .trending-text {
+    width: 100px;
+  }
+}
+
+@media (max-width: 650px) {
+  header h1 {
+    font-size: 40px;
+  }
+
+  footer > div > div > ul > li {
+    margin-bottom: 10px;
+  }
+
+  .container-flex-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 990px) {
+  #search-input {
+    display: none;
+  }
+
+  #buttonGo {
+    width: 20%;
+  }
+
+  #modal-main-container {
+    width: 80%;
+  }
+
+  #form-nav-toggle {
+    display: flex;
+    flex-direction: row;
+  }
+}
