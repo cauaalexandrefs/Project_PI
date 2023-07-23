@@ -41,9 +41,9 @@
           <h1 style="font-weight: bolder; letter-spacing: 5px">
             {{filmes.0.nome}}
           </h1>
-          <h3>Por apenas {{filmes.0.preco}}</h3>
+          <h3>Por apenas R${{filmes.0.preco}}</h3>
           <br />
-          <a href="#black-panther-modal"
+          <a href="{% url 'detail' filmes.0.id %}"
             ><span>Clique para mais detalhes</span></a
           >
         </div>
@@ -51,7 +51,7 @@
       <br />
       <div class="container-xlg" id="trending">
         <div class="trending-text">
-          <h2><a href="./filmes.html">Filmes</a></h2>
+          <h2><a href="#">Filmes</a></h2>
         </div>
         <br />
         <div class="trending-carrousel">
@@ -60,14 +60,14 @@
             <img
               class="card-img-top"
               src="{{filme.imagem.url}}"
-              alt="BLACK PANTHER"
+              alt="imagem filme"
             />
             <div class="card-body">
               <h6 class="card-title">{{filme.nome}}</h6>
               <p class="card-text">COMPRE POR {{filme.preco}}</p>
               <hr />
               <a
-                href="#black-panther-modal"
+                href="{% url 'detail' filme.id %}"
                 class="btn btn-primary"
                 id="btn-card-footer"
                 >Saiba mais</a
@@ -79,7 +79,7 @@
       </div>
       <div class="container-xlg" id="trending">
         <div class="trending-text" id="trending-series">
-          <h2><a href="./series.html">Séries</a></h2>
+          <h2><a href="#">Séries</a></h2>
         </div>
         <br />
         <div class="trending-carrousel">

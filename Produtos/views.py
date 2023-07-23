@@ -83,8 +83,10 @@ def detail(request, id):
     '''View function for detail page. Returns a specific movie or series.'''
 
     obra = Obra.objects.get(pk=id)
+    obras = Obra.objects.all()
 
     context = {
+        "obras": obras,
         "obra": obra,
     }
 
