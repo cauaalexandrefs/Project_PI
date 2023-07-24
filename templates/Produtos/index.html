@@ -7,10 +7,11 @@
 
 {% block content%}
 <br />
+
       {% if query %}
         <h3>Resultados para "{{query}}"</h3>
         {% for result in results %}
-          <p>{{result.nome}}</p>
+          <p><a href="/produtos/detail/{{result.id}}" style="color: black; text-decoration: none;">{{result.nome}}</a></p>
         {% endfor %}
 
       {% else %}      

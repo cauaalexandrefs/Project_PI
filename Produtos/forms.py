@@ -12,8 +12,6 @@ class FilmeForm(ModelForm):
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'sinopse': forms.Textarea(attrs={'class': 'form-control'}),
             'elenco': forms.Textarea(attrs={'class': 'form-control'}),
-            'preco': forms.DecimalField(attrs={'class': 'form-control'}),
-            'imagem': forms.ImageField(attrs={'class': 'form-control'}),
-            'poster': forms.ImageField(attrs={'class': 'form-control'}),
+            'preco': forms.NumberInput(attrs={'class': 'form-control'}),
             'trailer': forms.URLInput(attrs={'class': 'form-control'}),
         }
