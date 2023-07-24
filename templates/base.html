@@ -26,7 +26,23 @@
     <header>
         <h1><a href="{% url 'index' %}">Cine Star</a></h1>
         <div id="search-input" class="form-group">
-          {% block search %} {% endblock %}
+          <form action="/" method="get">
+            <input 
+            type="search" 
+            name="q"
+            placeholder="  Pesquise algum filme ou série..."
+            style="border: none; border-radius: 10px; width: 70%; height: 35px" />
+            <button
+              type="submit"
+              href="/"
+              id="buttonGo"
+              class="btn btn-secondary"
+            >
+              <span>Ir</span>
+            </button>
+        
+          </form>
+        
        
         </div>
   

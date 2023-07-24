@@ -1,93 +1,60 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.db.models import Q
-from .models import Obra
+from .models import Filme
 
 # Create your views here.
 
 
 def index(request):
-    '''View function for home page. Returns all movies and series.'''
+    '''View function for home page. Returns all movies.'''
 
-    filmes = Obra.objects.filter(tipo="F")
-    series = Obra.objects.filter(tipo="S")
+    filmes = Filme.objects.all()
 
     context = {
         "filmes": filmes,
-        "series": series,
     }
 
     if request.GET.get("q"):
         query = request.GET.get("q")
-        obras = Obra.objects.filter(
+        results = Filme.objects.filter(
             Q(nome__icontains=query)
         )
-        print(obras)
 
-        context = {
-            "query": query,
-            "obras": obras
-        }
+        context["query"] = query
+        context["results"] = results
 
     return render(request, "Produtos/index.html", context)
 
 
-def list_films(request):
-    '''View function for films page. Returns all movies.'''
+def detail(request, id):
+    '''View function for detail page. Returns a specific movie .'''
 
-    filmes = Obra.objects.filter(tipo="F")
+    filme = Filme.objects.get(pk=id)
+    filmes = Filme.objects.filter(id__lt=5).order_by("-id")
+    context = {
+        "filme": filme,
+        "filmes": filmes,
+    }
+
+    return render(request, "Produtos/detail.html", context)
+
+
+def admin(request):
+    '''View function for admin page. Returns all movies.'''
+
+    filmes = Filme.objects.all()
 
     context = {
         "filmes": filmes,
     }
 
-    if request.GET.get("q"):
-        query = request.GET.get("q")
-        obras = Obra.objects.filter(
-            Q(nome__icontains=query)
-        )
-        print(obras)
-
-        context = {
-            "query": query,
-            "obras": obras
-        }
-
-    return render(request, "Produtos/list_films.html", context)
+    return render(request, "Produtos/admin.html", context)
 
 
-def list_series(request):
-    '''View function for series page. Returns all series.'''
+def delete(request, id):
+    '''View function for delete a movie.'''
 
-    series = Obra.objects.filter(tipo="S")
+    filme = Filme.objects.get(pk=id)
+    filme.delete()
 
-    context = {
-        "series": series,
-    }
-
-    if request.GET.get("q"):
-        query = request.GET.get("q")
-        obras = Obra.objects.filter(
-            Q(nome__icontains=query)
-        )
-        print(obras)
-
-        context = {
-            "query": query,
-            "obras": obras
-        }
-
-    return render(request, "Produtos/list_series.html", context)
-
-
-def detail(request, id):
-    '''View function for detail page. Returns a specific movie or series.'''
-
-    obra = Obra.objects.get(pk=id)
-    obras = Obra.objects.all()
-
-    context = {
-        "obras": obras,
-        "obra": obra,
-    }
-
-    return render(request, "Produtos/detail.html", context)
+    return redirect("/produtos/admin")

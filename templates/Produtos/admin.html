@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Admin{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
+{% block content%}
+<br />
+<div style="text-align: end; padding: 1%;" >
+<a href="#">
+  <button class="btn btn-outline-dark flex-shrink-0">
+    <i class="bi bi-file-plus"></i>
+    Cadastrar filme
+  </button>
+</a>
+</div>
+<hr />
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Imagem</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sinópse</th>
+        <th scope="col">Elenco</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for filme in filmes %}
+    <tr>
+      <th scope="row">{{filme.id}}
+        <td><img src="{{filme.imagem.url}}" alt="{{filme.nome}}" width="100px" height="150px"></td>
+        <td>{{filme.nome}}</td>
+        <td>{{filme.sinopse}}</td>
+        <td>{{filme.elenco}}</td>
+        <td>{{filme.preco}}</td>
+        <td id="actions-table-column">
+          <a href="#"><button type="button" class="btn btn-outline-dark flex-shrink-0" style="margin-bottom: 5%;">
+            <i class="bi-pencil-square me-1"></i>
+              Editar
+            </button></a>
+            <a href="{% url 'delete' filme.id%}">
+                <button type="button" class="btn btn-outline-dark flex-shrink-0" >
+                <i class="bi-trash me-1"></i>
+                Deletar
+            </button></a>
+        </td>
+      </th>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock%}

@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Obra
+from .models import Filme
 # Register your models here.
 
 
-@admin.register(Obra)
-class ObraAdmin(admin.ModelAdmin):
+@admin.register(Filme)
+class FilmeAdmin(admin.ModelAdmin):
 
-    list_display = ('nome', 'tipo', 'preco', 'sinopse', 'elenco')
+    list_display = ('nome', 'preco', 'sinopse', 'elenco')

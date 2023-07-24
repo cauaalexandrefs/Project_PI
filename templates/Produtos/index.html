@@ -4,38 +4,20 @@
 {% block header %}
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock %}
-{% block search %}
-  <form action="/" method="get">
-    <input 
-    type="search" 
-    name="q"
-    placeholder="  Pesquise algum filme ou série..."
-    style="border: none; border-radius: 10px; width: 70%; height: 35px" />
-    <button
-      type="submit"
-      href="/"
-      id="buttonGo"
-      class="btn btn-secondary"
-    >
-      <span>Ir</span>
-    </button>
 
-  </form>
-
-{% endblock %}
 {% block content%}
 <br />
       {% if query %}
         <h3>Resultados para "{{query}}"</h3>
-        {% for obra in obras %}
-          <p>{{obra.nome}}</p>
+        {% for result in results %}
+          <p>{{result.nome}}</p>
         {% endfor %}
 
       {% else %}      
       <div
         class="container-lg"
         id="main-post"
-        style="background-image: url({{filmes.0.imagem.url}})"
+        style="background-image: url({{filmes.0.poster.url}})"
       >
         <div class="text-post">
           <h1 style="font-weight: bolder; letter-spacing: 5px">
@@ -74,17 +56,6 @@
               >
             </div>
           </div>
-          {% endfor %}
-        </div>
-      </div>
-      <div class="container-xlg" id="trending">
-        <div class="trending-text" id="trending-series">
-          <h2><a href="#">Séries</a></h2>
-        </div>
-        <br />
-        <div class="trending-carrousel">
-          {{filmes.0.}}
-          {% for serie in series %}
           {% endfor %}
         </div>
       </div>
