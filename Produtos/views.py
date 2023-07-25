@@ -68,7 +68,7 @@ def create(request):
 
     if request.method == "POST":
         form = FilmeForm(request.POST, request.FILES)
-        
+
         if form.is_valid():
             form.save()
         else:
@@ -77,7 +77,7 @@ def create(request):
         return redirect("/produtos/admin")
 
     form = FilmeForm()
-    return render(request, "Produtos/create.html", {"form": form})
+    return render(request, "Produtos/form.html", {"form": form})
 
 
 def update(request, id):
@@ -88,7 +88,7 @@ def update(request, id):
         if form.is_valid():
             form.save()
             return redirect('/produtos/admin')
-    else:
-        form = FilmeForm(instance=filme)
 
-    return render(request, 'Produtos/create.html', {'form': form})
+    form = FilmeForm(instance=filme)
+
+    return render(request, 'Produtos/form.html', {'form': form})

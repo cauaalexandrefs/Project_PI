@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Create{% endblock %}
+{% block title %}Form{% endblock %}
 {% block header %}
 <link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock %}
 {% block content%}
 <div class="container" id="main-container">
+    <h3>Cadastrar filme</h3>
     <form method="post"  enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
