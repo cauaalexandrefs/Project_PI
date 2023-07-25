@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content%}
 <div class="container" id="main-container">
-    <form method="post">
+    <form method="post"  enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
             <label for="nome">Nome</label>

@@ -32,7 +32,7 @@ def detail(request, id):
     '''View function for detail page. Returns a specific movie .'''
 
     filme = Filme.objects.get(pk=id)
-    filmes = Filme.objects.filter(id__lt=5).order_by("-id")
+    filmes = Filme.objects.filter(id__lt=20).order_by("-id")
     context = {
         "filme": filme,
         "filmes": filmes,
@@ -67,12 +67,12 @@ def create(request):
     '''View function for create a movie.'''
 
     if request.method == "POST":
-        Filme.objects.create(
-            nome=request.POST.get("nome"),
-            descricao=request.POST.get("descricao"),
-            preco=request.POST.get("preco"),
-            imagem=request.FILES.get("imagem"),
-        )
+        form = FilmeForm(request.POST, request.FILES)
+        
+        if form.is_valid():
+            form.save()
+        else:
+            print(form.errors)
 
         return redirect("/produtos/admin")
 
@@ -80,16 +80,15 @@ def create(request):
     return render(request, "Produtos/create.html", {"form": form})
 
 
-def update(request,id):
-    filme = get_object_or_404(Filme,pk=id)
-   
-    if request.method == 'POST':
-        form = FilmeForm(request.POST,instance=filme)
+def update(request, id):
+    filme = get_object_or_404(Filme, pk=id)
 
+    if request.method == 'POST':
+        form = FilmeForm(request.POST, request.FILES, instance=filme)
         if form.is_valid():
             form.save()
             return redirect('/produtos/admin')
     else:
         form = FilmeForm(instance=filme)
 
-    return render(request,'Produtos/create.html',{'form':form})
+    return render(request, 'Produtos/create.html', {'form': form})
