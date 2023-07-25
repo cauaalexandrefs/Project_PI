@@ -11,7 +11,7 @@
                 <div class="row gx-4 gx-lg-5 align-items-center">
                     <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{filme.imagem.url}}" alt="Poster" /></div>
                     <div class="col-md-6">
-                        <div class="small mb-1">TIPO</div>
+                        <div class="small mb-1">Filme</div>
                         <h1 class="display-5 fw-bolder">{{filme.nome}}</h1>
                         <div class="fs-5 mb-5">
                             <span class="text-decoration-line-through">R${{filme.preco}}</span>
@@ -20,8 +20,6 @@
                         <p class="lead">{{filme.sinopse}}</p>
                         <br >
                         <p class="lead">Elenco: {{filme.elenco}}</p>
-                        <br >
-                        <p class="lead">: {{filme.elenco}}</p>
                         <br >
                         <div class="d-flex" style="justify-content: space-around;">
 <a href="/">
@@ -51,7 +49,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">NOVO</div>
                             <!-- Product image-->
                             <img class="card-img-top" src="{{filme.imagem.url}}" alt="..." />
                             <!-- Product details-->
@@ -74,7 +72,6 @@
                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'detail' filme.id%}">Saiba mais</a></div>
                                 </div>
                             </div>
-                            <!-- Product actions-->
                         </div>
                     </div>
                     {% endfor %}

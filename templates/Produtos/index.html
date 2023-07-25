@@ -10,11 +10,38 @@
 
       {% if query %}
         <h3>Resultados para "{{query}}"</h3>
-        {% for result in results %}
-          <p><a href="/produtos/detail/{{result.id}}" style="color: black; text-decoration: none;">{{result.nome}}</a></p>
-        {% endfor %}
-
-      {% else %}      
+        <div class="trending-carrousel">
+          {% for result in results %}
+            <div class="card" id="card-carrousel-item">
+              <img
+                class="card-img-top"
+                src="{{result.imagem.url}}"
+                alt="imagem filme"
+              />
+              <div class="card-body">
+                <h6 class="card-title">{{result.nome}}</h6>
+                <p class="card-text">COMPRE POR {{result.preco}}</p>
+                <hr />
+                <a
+                  href="{% url 'detail' result.id %}"
+                  class="btn btn-primary"
+                  id="btn-card-footer"
+                  >Saiba mais</a
+                >
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+      
+      {% if filmes.0.poster.url is local %}
+      <div class="text-post">
+        <h1 style=" color: #eb1d36; font-weight: bolder; letter-spacing: 5px">
+          Cadastre um filme em Admin
+        </h1>
+      </div>
+      {% else %}
+      </div>
       <div
         class="container-lg"
         id="main-post"
@@ -31,6 +58,7 @@
           >
         </div>
       </div>
+      {% endif %}
       <br />
       <div class="container-xlg" id="trending">
         <div class="trending-text">

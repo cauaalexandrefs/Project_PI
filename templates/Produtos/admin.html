@@ -30,6 +30,8 @@
     </thead>
     <tbody>
     {% for filme in filmes %}
+    
+
     <tr>
       <th scope="row">{{filme.id}}
         <td><img src="{{filme.imagem.url}}" alt="{{filme.nome}}" width="100px" height="150px"></td>
@@ -38,7 +40,7 @@
         <td>{{filme.elenco}}</td>
         <td>{{filme.preco}}</td>
         <td id="actions-table-column">
-          <a href="#"><button type="button" class="btn btn-outline-dark flex-shrink-0" style="margin-bottom: 5%;">
+          <a href="{% url 'update' filme.id %}"><button type="button" class="btn btn-outline-dark flex-shrink-0" style="margin-bottom: 5%;">
             <i class="bi-pencil-square me-1"></i>
               Editar
             </button></a>
@@ -50,6 +52,7 @@
         </td>
       </th>
     </tr>
+
     {% endfor %}
     </tbody>
   </table>

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Filme
@@ -80,19 +80,16 @@ def create(request):
     return render(request, "Produtos/create.html", {"form": form})
 
 
-def update(request, id):
-    '''View function for update a movie.'''
+def update(request,id):
+    filme = get_object_or_404(Filme,pk=id)
+   
+    if request.method == 'POST':
+        form = FilmeForm(request.POST,instance=filme)
 
-    filme = Filme.objects.get(pk=id)
+        if form.is_valid():
+            form.save()
+            return redirect('/produtos/admin')
+    else:
+        form = FilmeForm(instance=filme)
 
-    if request.method == "POST":
-        filme.nome = request.POST.get("nome")
-        filme.descricao = request.POST.get("descricao")
-        filme.preco = request.POST.get("preco")
-        filme.imagem = request.FILES.get("imagem")
-        filme.save()
-
-        return redirect("/produtos/admin")
-
-    form = FilmeForm(instance=filme)
-    return render(request, "Produtos/update.html", {"form": form})
+    return render(request,'Produtos/create.html',{'form':form})
